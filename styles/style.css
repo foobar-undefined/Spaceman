@@ -18,3 +18,38 @@ header{
     /*letter-spacing: 1vmin;*/
 
 }
+
+.wrappper {
+    
+    width: 100%;
+    margin: 0 auto;
+}
+
+button{
+    border-radius: 5px;
+    border: solid 1px white;
+    color: white;
+    width: 35px;
+    height: 35px;
+    margin: 0 10px 10px 0;
+    outline: none;
+}
+
+button:hover{
+    transition: 1s;
+    background: rgb(125, 120, 120);
+    border: solid 1px gray;
+    color: white;
+}
+
+#restart{
+    width: 50px;
+    height: 35px ;
+    color: black;
+    background: red;
+}
+
+#restart:hover{
+    transition: 1s;
+    background: rgb(227, 126, 126);
+}
