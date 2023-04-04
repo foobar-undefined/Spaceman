@@ -3,7 +3,7 @@
 }
 
 body{
-    background-color: brown;
+    background-color: rgb(17, 107, 172);
     height: 100vh;
     margin: 0;
 
@@ -14,13 +14,13 @@ body{
 
 header{
     font-size: 4vmin;
-    color: darkgray;
+    color: rgb(112, 153, 189);
     /*letter-spacing: 1vmin;*/
 
 }
 
 .wrappper {
-    
+
     width: 100%;
     margin: 0 auto;
 }
@@ -36,9 +36,9 @@ button{
 }
 
 button:hover{
-    transition: 1s;
-    background: rgb(125, 120, 120);
-    border: solid 1px gray;
+    transition: .5s;
+    background: rgb(80, 72, 72);
+    border: solid 1px rgb(96, 89, 89);
     color: white;
 }
 
@@ -50,6 +50,14 @@ button:hover{
 }
 
 #restart:hover{
-    transition: 1s;
     background: rgb(227, 126, 126);
+}
+
+#hint{
+    width: 50px;
+    background-color: rgb(216, 230, 143);
+    color: black;
+}
+#hint:hover{
+    background: rgb(138, 82, 82);
 }
