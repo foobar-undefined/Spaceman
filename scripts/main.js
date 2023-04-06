@@ -49,13 +49,14 @@ let answer = [];    //answer
 let hint;           // hint for our player
 let tries;          // amount of tires left
 let question;
+let count;
 
-/*----- cached elements  -----*/
 const alphabetButtons = document.getElementById('alpha-buttons');
 const ejectButton = document.getElementById('restart');
 const hintButton = document.getElementById('hint');
 const puzzleContainer = document.getElementById('puzzleContainer');
-const countDisplay = document.getElementById('count');
+const countMessage = document.getElementById('count');
+const countDisplay = document.getElementById('countNumber');
 const categoryMessage = document.getElementById('categoryName')
 const questionHere = document.querySelector('h4');
 let puzzleLetter = document.querySelectorAll('puzzleLetter');
@@ -86,12 +87,10 @@ function handleEvent(e){
     if(isButton){
         const buttonId = document.getElementById(e.target.id);
         buttonId.classList.add('selected');
+        document.querySelector(".selected").disabled = true;
         answer.push(buttonId.id);
-
         for(let i = 0; i < puzzle.length; i++){
             if(buttonId.id === puzzle[i]){
-                console.log("match");
-                console.log(puzzleLetter);
                 puzzleLetter[i].innerText = puzzle[i];
             }
         }
@@ -104,25 +103,38 @@ function guess(e){
     let puzzleArray = puzzle.split("");
     const guessWord = e.target.id;
     if(isTrue()){
-        console.log("access granted");
-        countDisplay.innerText = "Access Granted";
+        countMessage.innerText = "Access Granted";
         
     }else{
         if(puzzleArray !== puzzleArray.includes(guessWord)){
+            //countDisplay.innerText = countDown;
+            countDown -=1 ;
             countDisplay.innerText = countDown;
-            countDown -= 1;
-            timer();
+            if(countDown === 0){
+                countMessage.innerText = "GAME OVER";
+
+            }
         }
     }
 }
 
-function isClicked(){
-    if(button.classList.contains("selected")) return true;
-}
+// function isClicked(){
+//     if(button.classList.contains("selected")) return true;
+// }
 
-function guessHint(){
-    //let hint = e.target.id;
-    console.log('clicked')
+// function accessGranted(){
+//     count++
+//     if(count === 3){
+//         countMessage.innerText = "Access Granted";
+//     }
+// }
+
+function guessHint(e){
+    const buttonId = document.getElementById(e.target.id);
+    buttonId.classList.add('selected');
+    document.querySelector(".selected").disabled = true;
+    countDown += 1;
+    countDisplay.innerText = countDown;
     //let hintAnswer = data[iceBoxCategory].hint
 }
 
@@ -135,7 +147,6 @@ function categorySelect(){
 
 //isTrue() checks if all alphabet selected contains the puzzle word
 //returns true
-
 function isTrue(){
     let puzzleArray = puzzle.split("");
     let filteredPuzzle = puzzleArray.filter(function(specialChar){
@@ -150,21 +161,12 @@ function isTrue(){
 }
 
 
-function timer(){
-    if(countDown === 0){
-        tries -= 1;
-        countDisplay.innerHTML = `You have ${tries}/3 tries left`; 
-    }
-}
-
-
 // Passing the puzzle word and creating a div for each character
 //adding a class to each element 'puzzleLetter' and appending to the page; 
 function generatePuzzleDisplay(word){
     let wordArray = word.split("");
     for(let i = 0; i < wordArray.length; i++){
         const letterHolder = document.createElement('div');
-        // letterHolder.innerText = wordArray[i]; 
         if(wordArray[i] === " " || wordArray[i]=== "-" ){
              letterHolder.setAttribute('class', 'puzzleLetter');
              letterHolder.setAttribute('id', 'special');
@@ -186,10 +188,9 @@ function initialize(){
     questionHere.innerHTML = data[iceBoxCategory].question;
     categoryMessage.innerHTML = data[iceBoxCategory].categories;
     hint = data[iceBoxCategory].hint;
-    countDown = 5;
-    countDisplay.innerHTML = "";
+    countDown = puzzle.length + 1;
+    count = 0
     answer = [];
-    tries = 3;
     render()
 }
 
@@ -198,7 +199,8 @@ function render(){
     alphaButtons()
     puzzleContainer.innerHTML = ""
     generatePuzzleDisplay(puzzle);
-    countDisplay.innerHTML = countDown;
+    countMessage.innerText = "COUNT DOWN";
+    countDisplay.innerText = countDown;
 }
 
 initialize();

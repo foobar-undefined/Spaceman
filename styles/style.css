@@ -124,6 +124,19 @@ button:hover{
     
 } */
 
+.keyboard-base{
+    max-width: 1085px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
 
+
+
+}
+
+
+#alphabet{
+    
+}
 
 
