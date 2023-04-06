@@ -4,7 +4,7 @@ const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-const categories = ['nyc', 'sfo', 'tok', 'mosc'];
+const categories = ['ny c', 'sf o', 'tok', 'mosc'];
 
 /*----- state variables -----*/
 let countDown;      // Keep track how many turns left before end game
@@ -23,7 +23,7 @@ const ejectButton = document.getElementById('restart');
 const hintButton = document.getElementById('hint');
 const puzzleContainer = document.getElementById('puzzleContainer');
 const countDisplay = document.getElementById('count');
-//const puzzleLetter = document.getElementById('puzzleLetter');
+const puzzleLetter = document.getElementById('puzzleLetter');
 
 /*----- event listeners -----*/
 alphabetButtons.addEventListener('click', handleEvent);
@@ -50,24 +50,29 @@ function handleEvent(e){
         const buttonId = document.getElementById(e.target.id);
         buttonId.classList.add('selected');
         answer.push(buttonId.id);
-        countDown -= 1;
+        //countDown -= 1;
     }
     console.log(answer+ ': answer array');
 }
 
+//guess() handles each letter
 function guess(e){
     let puzzleArray = puzzle.split("");
     console.log(puzzleArray + ": array for puzzle");
     const guessWord = e.target.id;
     console.log(guessWord + ": guess word");
 
+    let filteredPuzzle = puzzleArray.filter(function(specialChar){
+        return /\S/.test(specialChar);
+    });
+
     const containsAll = (answerArray, puzzArr) => 
         puzzArr.every(puzzLetter => answerArray.includes(puzzLetter));
 
-    if(containsAll(answer, puzzleArray)){
-    //if(answer.sort().join(',') === puzzleArray.sort().join(',')){
+    if(containsAll(answer, filteredPuzzle)){
         console.log('Access Granted');
         countDisplay.innerText = "Access Granted";
+
     }else{
         if(puzzleArray !== puzzleArray.includes(guessWord)){
             const lowerCount = document.getElementById('countNumber');
@@ -90,12 +95,19 @@ function generatePuzzleDisplay(word){
     let wordArray = word.split("");
     for(let i = 0; i < wordArray.length; i++){
         const letterHolder = document.createElement('div');
-        letterHolder.setAttribute('id', 'puzzleLetter');
         letterHolder.innerText = wordArray[i]; 
-        puzzleContainer.appendChild(letterHolder);
+         if(letterHolder.innerText === " " || letterHolder.innerText === "-" ){
+            letterHolder.setAttribute('id', 'special');
+            puzzleContainer.appendChild(letterHolder);
+        }else{       
+            letterHolder.setAttribute('id', 'puzzleLetter');
+            puzzleContainer.appendChild(letterHolder);
+        // if(puzzleLetter === " "){
+        //     puzzleLetter.id = "ignore";
+        }
     }
     //console.log(wordArray.indexOf(' '));
-    console.log(wordArray);
+    //console.log(wordArray);
     return wordArray
 }
 
