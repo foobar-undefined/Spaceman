@@ -4,7 +4,7 @@ const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-const categories = ['ny c', 'sf o', 'tok', 'mosc'];
+const categories = ['ny c', 'oosf o', 'tok', 'mosc'];
 
 /*----- state variables -----*/
 let countDown;      // Keep track how many turns left before end game
@@ -12,10 +12,9 @@ let alphabetJail;   // a list storing used and non-reuseable characters
 let iceBoxCategory; // a category selector
 let airLock;        // door that will open when the spacemans give up or loses
 let spaceMan;       // our player character
-let puzzle = "";         // puzzle
+let puzzle = "";     // puzzle
 let answer = [];    //answer
 let hint;           // hint for our player
-
 
 /*----- cached elements  -----*/
 const alphabetButtons = document.getElementById('alpha-buttons');
@@ -23,12 +22,14 @@ const ejectButton = document.getElementById('restart');
 const hintButton = document.getElementById('hint');
 const puzzleContainer = document.getElementById('puzzleContainer');
 const countDisplay = document.getElementById('count');
-const puzzleLetter = document.getElementById('puzzleLetter');
+let puzzleLetter = document.querySelectorAll('puzzleLetter');
+let specialCharacter = document.getElementById('special');
 
 /*----- event listeners -----*/
 alphabetButtons.addEventListener('click', handleEvent);
 ejectButton.addEventListener('click', initialize);
 alphabetButtons.addEventListener('click', guess);
+
 
 
 /*----- functions -----*/
@@ -50,7 +51,14 @@ function handleEvent(e){
         const buttonId = document.getElementById(e.target.id);
         buttonId.classList.add('selected');
         answer.push(buttonId.id);
-        //countDown -= 1;
+
+        for(let i = 0; i < puzzle.length; i++){
+            if(buttonId.id === puzzle[i]){
+                console.log("match");
+                console.log(puzzleLetter);
+                puzzleLetter[i].innerText = puzzle[i];
+            }
+        }
     }
     console.log(answer+ ': answer array');
 }
@@ -58,25 +66,22 @@ function handleEvent(e){
 //guess() handles each letter
 function guess(e){
     let puzzleArray = puzzle.split("");
-    console.log(puzzleArray + ": array for puzzle");
     const guessWord = e.target.id;
-    console.log(guessWord + ": guess word");
-
     let filteredPuzzle = puzzleArray.filter(function(specialChar){
         return /\S/.test(specialChar);
     });
+    console.log(filteredPuzzle);
 
     const containsAll = (answerArray, puzzArr) => 
         puzzArr.every(puzzLetter => answerArray.includes(puzzLetter));
 
-    if(containsAll(answer, filteredPuzzle)){
-        console.log('Access Granted');
+    if(containsAll(answer,filteredPuzzle)){
         countDisplay.innerText = "Access Granted";
 
     }else{
         if(puzzleArray !== puzzleArray.includes(guessWord)){
-            const lowerCount = document.getElementById('countNumber');
-            lowerCount.innerText = countDown;
+            countDisplay.innerText = countDown;
+            countDown -= 1;
         }
     }
 }
@@ -95,32 +100,33 @@ function generatePuzzleDisplay(word){
     let wordArray = word.split("");
     for(let i = 0; i < wordArray.length; i++){
         const letterHolder = document.createElement('div');
-        letterHolder.innerText = wordArray[i]; 
-         if(letterHolder.innerText === " " || letterHolder.innerText === "-" ){
-            letterHolder.setAttribute('id', 'special');
+        // letterHolder.innerText = wordArray[i]; 
+        if(wordArray[i] === " " || wordArray[i]=== "-" ){
+             letterHolder.setAttribute('class', 'puzzleLetter');
+             letterHolder.setAttribute('id', 'special');
+             puzzleContainer.appendChild(letterHolder);
+         }else{        
+            letterHolder.setAttribute('class', 'puzzleLetter');
             puzzleContainer.appendChild(letterHolder);
-        }else{       
-            letterHolder.setAttribute('id', 'puzzleLetter');
-            puzzleContainer.appendChild(letterHolder);
-        // if(puzzleLetter === " "){
-        //     puzzleLetter.id = "ignore";
         }
+        puzzleLetter = document.querySelectorAll('.puzzleLetter');
     }
-    //console.log(wordArray.indexOf(' '));
-    //console.log(wordArray);
+    console.log(wordArray);
     return wordArray
 }
 
 function initialize(){
     puzzle = categorySelect();
     countDown = puzzle.length + 5;
+    countDisplay.innerHTML = "";
+    render()
 }
 
 function render(){
+    alphabetButtons.innerHTML = "";
     alphaButtons()
-    generatePuzzleDisplay(puzzle)
+    puzzleContainer.innerHTML = ""
+    generatePuzzleDisplay(puzzle);
 }
 
-
 initialize();
-render();

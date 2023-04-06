@@ -89,7 +89,7 @@ button:hover{
     align-items: center;
 }
 
-#puzzleLetter{
+.puzzleLetter{
     width: 10vmin;
     height: 11vmin;
     display: flex;
@@ -119,10 +119,10 @@ button:hover{
     font-size: 5vmin;
 }    
 
-
+/* 
 .selected{
-    display: none;
-}
+    
+} */
 
 
 
