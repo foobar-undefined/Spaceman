@@ -1,30 +1,39 @@
 *{
-    box-sizing: border-box;
+   
     padding: 0;
     margin: 0;
 }
 
 body{
-    background-color: rgb(17, 107, 172);
+    box-sizing: border-box;
+    position: relative;
+    background-color: rgb(0, 0, 0);
     height: 100vh;
     margin: 0;
-
+    padding: 3min;
     justify-content: center;
     align-items: center;
     text-align: center;
+    overflow: hidden;
+    /* font-family: 'Hyperspeed', sans-serif; */
 }
 
 header{
     font-size: 4vmin;
     color: rgb(112, 153, 189);
+    font-family: 'Hyperspeed', sans-serif;
     /*letter-spacing: 1vmin;*/
 }
 
 .wrapper {
-
     width: 100%;
     margin: 0 auto;
     
+}
+
+keyboard-base{
+    padding: 10vmin;
+
 }
 
 button{
@@ -60,8 +69,27 @@ button:hover{
     background-color: rgb(216, 230, 143);
     color: black;
 }
+
+#hintImage{
+    max-width: 300px;
+    max-height: 300px;
+}
+
 #hint:hover{
     background: rgb(138, 82, 82);
+}
+
+
+#categoryName{
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+#question{
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 #counter{
@@ -71,18 +99,19 @@ button:hover{
 
 #count{
     font-size: 4vmin;
-    color: red;
+    color: white
 }
 
 #countNumber{
-    color: black;
+    color: red;
     font-size: 4vmin;
 }
+
 #puzzleContainer{
     margin: auto;
     width: 500px;
     height: 150px;
-    outline: dashed 1px black;
+
     /* Center vertically and horizontally */
     display: flex;
     justify-content: center;
@@ -124,19 +153,5 @@ button:hover{
     
 } */
 
-.keyboard-base{
-    max-width: 1085px;
-    padding: 20px;
-    position: absolute;
-    top: 50%;
-
-
-
-}
-
-
-#alphabet{
-    
-}
 
 

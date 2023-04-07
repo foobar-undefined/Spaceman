@@ -1,53 +1,123 @@
 /*----- constants -----*/
 
-const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-'t', 'u', 'v', 'w', 'x', 'y', 'z'];
+const alphabet = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i',
+'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
+'z', 'x', 'c', 'v', 'b', 'n', 'm'];
+
+// ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+// 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+// 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
 
 const data = [{
-    categories: "VideoGame",
-    question: "Who is the titular princess of The Legend of Zelda?",
-    answer: "princess zelda",
-    hint: ""
+    categories: "Video Game",
+    question: "Who is the protagonist in Legenda of Zelda?",
+    answer: "link",
+    hint: "imgs/loz.gif"
 },
+// {
+//     categories: "Video Game",
+//     question: "What was the first home console released by Nintendo?",
+//     answer: "nes",
+//     hint: "imgs/nes-nintendo-entertainment-system.gif"
+// }, 
+// {
+//     categories: "Video Game",
+//     question: "What is the name of the first game released for the Nintendo Game Boy?",
+//     answer: "tetris",
+//     hint: "imgs/tetris-game-boy.gif"
+// },
+// {
+//     categories: "Video Game",
+//     question: "Who is Sonic’s sidekick?",
+//     answer: "tails",
+//     hint: "imgs/tails.gif"
+// },
+// {
+//     categories: "VideoGame",
+//     question: "What is the name of a yellow mascot of the nintendo game, 'Pokemon'?",
+//     answer: "pikachu",
+//     hint: "imgs/94f.gif"
+// }
+// ,{
+//     categories: "History",
+//     question: "In which country were cuckoo clocks invented?",
+//     answer: "germany",
+//     hint: "imgs/giphy.gif"
+// }
+// ,{
+//     categories: "History",
+//     question: "The famous St. Peter’s Basilica is located in which city?",
+//     answer: "vatican",
+//     hint: "imgs/vatican.gif"
+// }
+// ,{
+//     categories: "History",
+//     question: "Louis XIV was known as the ‘what’ King?",
+//     answer: "sun",
+//     hint: "imgs/sun.gif"
+// }
+//,{
+//     categories: "History",
+//     question: "The Samurai were warriors in which Asian country?",
+//     answer: "japan",
+//     hint: "imgs/japan.gif"
+// },{
+//     categories: "History",
+//     question: "Leonardo da Vinci painted what in c.1503-1506?",
+//     answer: "mona lisa",
+//     hint: "imgs/monalisa.gif"
+// },{
+//     categories: "Movies",
+//     question: "After the success of which film did sales of a particular pet animal increase?",
+//     answer: "ratatouille",
+//     hint: "imgs/ratatouille.gif"
+// },{
+//     categories: "Movies",
+//     question: "In which film was the fake snow used actually asbestos-based?",
+//     answer: "wizard of oz",
+//     hint: "imgs/wizardofOz.gif"
+// },{
+//     categories: "Movies",
+//     question: "In The Matrix, does Neo take the blue pill or the red pill?",
+//     answer: "red",
+//     hint: "imgs/red.gif"
+// },{
+//     categories: "Movies",
+//     question: "Michael Jordan starred alongside Bugs Bunny in which film?",
+//     answer: "space jam",
+//     hint: "imgs/spacejam.gif"
+// },{
+//     categories: "Coding trivia",
+//     question: "JavaScript wasn’t always called that. What other names has it been released under?",
+//     answer: "mocha",
+//     hint: "imgs/mocha.jpeg"
+// },{
+//     categories: "Coding trivia",
+//     question: "Who created JavaScript?",
+//     answer: "netscape",
+//     hint: "imgs/netscape.png"
+//},
 {
-    categories: "VideoGame",
-    question: "What was the first home console released by Nintendo?",
-    answer: "nes",
-    hint: ""
-}, 
-{
-    categories: "VideoGame",
-    question: "What is the name of the first game released for the Nintendo Game Boy?",
-    answer: "tetris",
-    hint: ""
-},
-{
-    categories: "VideoGame",
-    question: "What is the name of the fictional land in which The Legend of Zelda is set?",
-    answer: "hyrule",
-    hint: ""
-},
-{
-    categories: "VideoGame",
-    question: "Which Nintendo game series features a yellow creature named Pikachu who can shoot lightning bolts?",
-    answer: "pokemon",
-    hint: ""
+    categories: "Coding trivia",
+    question: "What word is not a reserved word in JavaScript?",
+    answer: "undefined",
+    hint: "imgs/undefinedmeme.webp"
 }
+//,{
+//     categories: "Coding trivia",
+//     question: "JavaScript gets confused with what other langauge?",
+//     answer: "java",
+//     hint: "imgs/java.gif"
+// }
 ];
-
-//const categories = ['ny c', 'oso o', 'tos dsdk', 'mcu'];
 
 /*----- state variables -----*/
 let countDown;      // Keep track how many turns left before end game
-//let alphabetJail;   // a list storing used and non-reuseable characters
 let iceBoxCategory; // a category selector
-let airLock;        // door that will open when the spacemans give up or loses
-let spaceMan;       // our player character
 let puzzle = "";     // puzzle
 let answer = [];    //answer
 let hint;           // hint for our player
-let tries;          // amount of tires left
 let question;
 let count;
 
@@ -58,7 +128,8 @@ const puzzleContainer = document.getElementById('puzzleContainer');
 const countMessage = document.getElementById('count');
 const countDisplay = document.getElementById('countNumber');
 const categoryMessage = document.getElementById('categoryName')
-const questionHere = document.querySelector('h4');
+const questionHere = document.getElementById('question');
+
 let puzzleLetter = document.querySelectorAll('puzzleLetter');
 let specialCharacter = document.getElementById('special');
 
@@ -74,7 +145,12 @@ hintButton.addEventListener('click', guessHint);
 function alphaButtons(){
     let buttonsHTML = document.getElementById("alpha-buttons")
     for(let i = 0; i< alphabet.length; i++){
+        if(alphabet[i] === 'a'|| alphabet[i] === 'z'){
+            //buttonsHTML.innerHTML += `<button class = "alphabet " id = "${alphabet[i]}"> ${alphabet[i]}</button>`
+            buttonsHTML.innerHTML += '<br></br>';
+        }
         buttonsHTML.innerHTML += `<button class = "alphabet " id = "${alphabet[i]}"> ${alphabet[i]}</button>`
+
     }
 }
 
@@ -107,35 +183,25 @@ function guess(e){
         
     }else{
         if(puzzleArray !== puzzleArray.includes(guessWord)){
-            //countDisplay.innerText = countDown;
             countDown -=1 ;
             countDisplay.innerText = countDown;
             if(countDown === 0){
-                countMessage.innerText = "GAME OVER";
-
+                countMessage.innerText = "Access Denied";
+                ejectedAnimation();
             }
         }
     }
 }
 
-// function isClicked(){
-//     if(button.classList.contains("selected")) return true;
-// }
-
-// function accessGranted(){
-//     count++
-//     if(count === 3){
-//         countMessage.innerText = "Access Granted";
-//     }
-// }
 
 function guessHint(e){
     const buttonId = document.getElementById(e.target.id);
+    const hintImage = document.getElementById('hintImage');
     buttonId.classList.add('selected');
     document.querySelector(".selected").disabled = true;
     countDown += 1;
     countDisplay.innerText = countDown;
-    //let hintAnswer = data[iceBoxCategory].hint
+    hintImage.src = data[iceBoxCategory].hint
 }
 
 //categorySelect() randomly selects a number from the categories array
@@ -181,15 +247,20 @@ function generatePuzzleDisplay(word){
     return wordArray
 }
 
+function ejectedAnimation(){
+    const hintImage = document.getElementById('hintImage');
+    hintImage.src = 'imgs/You-were-ejected!.gif';
+}
+
 function initialize(){
     iceBoxCategory = categorySelect();
     puzzle = data[iceBoxCategory].answer;
     console.log(puzzle);
     questionHere.innerHTML = data[iceBoxCategory].question;
     categoryMessage.innerHTML = data[iceBoxCategory].categories;
+    hintImage.src = "";
     hint = data[iceBoxCategory].hint;
     countDown = puzzle.length + 1;
-    count = 0
     answer = [];
     render()
 }
@@ -201,6 +272,8 @@ function render(){
     generatePuzzleDisplay(puzzle);
     countMessage.innerText = "COUNT DOWN";
     countDisplay.innerText = countDown;
+    document.querySelector(".selected").disabled = false;
+    
 }
 
 initialize();

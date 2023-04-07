@@ -5,20 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
+    <link href="https://fonts.cdnfonts.com/css/hyperspeed" rel="stylesheet">
     <script defer src="./scripts/main.js"></script>
     <title>Spaceman</title>
 </head>
 <body>
-    <header>A spaceman's incommodity </header>
+    <header>A spaceman's Incommodity </header>
     <div id = "icebox" class = "wrapper">
-        <h2> CATEGORY SELECTED </h2>
-        <h3 id ="categoryName">Question here</h3>
-        <h4>question here!</h4>
+        <h2> Category Selected </h2>
+        <h2 id ="categoryName"></h2>
+        <h3 id = 'question'></h3>
         <div id="counter">
-            <h3 id = "count">Count down </h3>
+            <h4 id = "count">Count down </h4>
             <h3 id = "countNumber"></h3>
         </div>
-        <div>Hint</div>
+        <div id = "hintContainer">
+            <img id="hintImage"></div>
+        </div>
+        
         <div id = "puzzleContainer"></div>
 
     </div>
@@ -26,7 +30,7 @@
 
 <div class = "keyboard-base">
     <div id = "alpha-buttons"></div>
-    <button id="restart">Eject</button>
+    <button id="restart">Try Again</button>
     <button id="hint">Hint</button>
 </div>
 
