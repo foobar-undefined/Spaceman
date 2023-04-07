@@ -17,6 +17,9 @@ A Spaceman's incommodity:
 <img src="imgs/endgame.png" width="500px">
 
 
+## Give it a TRY:
+
+     https://foobar-undefined.github.io/Spaceman/
 
 ## Rules:
 - It's a one player game
