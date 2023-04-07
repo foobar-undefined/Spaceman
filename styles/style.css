@@ -31,11 +31,6 @@ header{
     
 }
 
-keyboard-base{
-    padding: 10vmin;
-
-}
-
 button{
     border-radius: 5px;
     border: solid 1px white;
@@ -65,6 +60,7 @@ button:hover{
 }
 
 #hint{
+    height: 35px;
     width: 50px;
     background-color: rgb(216, 230, 143);
     color: black;
@@ -109,10 +105,8 @@ button:hover{
 
 #puzzleContainer{
     margin: auto;
-    width: 500px;
+    width: 650px;
     height: 150px;
-
-    /* Center vertically and horizontally */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,7 +122,7 @@ button:hover{
     border: 4px solid rgb(39, 41, 43);
     background-color: red;
     border-radius: 15px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Hyperspeed', sans-serif;
     color: black;
     font-size: 5vmin;
 }

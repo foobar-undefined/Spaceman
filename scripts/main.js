@@ -4,9 +4,6 @@ const alphabet = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i',
 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
 'z', 'x', 'c', 'v', 'b', 'n', 'm'];
 
-// ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-// 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-// 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 
 const data = [{
@@ -15,101 +12,101 @@ const data = [{
     answer: "link",
     hint: "imgs/loz.gif"
 },
-// {
-//     categories: "Video Game",
-//     question: "What was the first home console released by Nintendo?",
-//     answer: "nes",
-//     hint: "imgs/nes-nintendo-entertainment-system.gif"
-// }, 
-// {
-//     categories: "Video Game",
-//     question: "What is the name of the first game released for the Nintendo Game Boy?",
-//     answer: "tetris",
-//     hint: "imgs/tetris-game-boy.gif"
-// },
-// {
-//     categories: "Video Game",
-//     question: "Who is Sonic’s sidekick?",
-//     answer: "tails",
-//     hint: "imgs/tails.gif"
-// },
-// {
-//     categories: "VideoGame",
-//     question: "What is the name of a yellow mascot of the nintendo game, 'Pokemon'?",
-//     answer: "pikachu",
-//     hint: "imgs/94f.gif"
-// }
-// ,{
-//     categories: "History",
-//     question: "In which country were cuckoo clocks invented?",
-//     answer: "germany",
-//     hint: "imgs/giphy.gif"
-// }
-// ,{
-//     categories: "History",
-//     question: "The famous St. Peter’s Basilica is located in which city?",
-//     answer: "vatican",
-//     hint: "imgs/vatican.gif"
-// }
-// ,{
-//     categories: "History",
-//     question: "Louis XIV was known as the ‘what’ King?",
-//     answer: "sun",
-//     hint: "imgs/sun.gif"
-// }
-//,{
-//     categories: "History",
-//     question: "The Samurai were warriors in which Asian country?",
-//     answer: "japan",
-//     hint: "imgs/japan.gif"
-// },{
-//     categories: "History",
-//     question: "Leonardo da Vinci painted what in c.1503-1506?",
-//     answer: "mona lisa",
-//     hint: "imgs/monalisa.gif"
-// },{
-//     categories: "Movies",
-//     question: "After the success of which film did sales of a particular pet animal increase?",
-//     answer: "ratatouille",
-//     hint: "imgs/ratatouille.gif"
-// },{
-//     categories: "Movies",
-//     question: "In which film was the fake snow used actually asbestos-based?",
-//     answer: "wizard of oz",
-//     hint: "imgs/wizardofOz.gif"
-// },{
-//     categories: "Movies",
-//     question: "In The Matrix, does Neo take the blue pill or the red pill?",
-//     answer: "red",
-//     hint: "imgs/red.gif"
-// },{
-//     categories: "Movies",
-//     question: "Michael Jordan starred alongside Bugs Bunny in which film?",
-//     answer: "space jam",
-//     hint: "imgs/spacejam.gif"
-// },{
-//     categories: "Coding trivia",
-//     question: "JavaScript wasn’t always called that. What other names has it been released under?",
-//     answer: "mocha",
-//     hint: "imgs/mocha.jpeg"
-// },{
-//     categories: "Coding trivia",
-//     question: "Who created JavaScript?",
-//     answer: "netscape",
-//     hint: "imgs/netscape.png"
-//},
+{
+    categories: "Video Game",
+    question: "What was the first home console released by Nintendo?",
+    answer: "nes",
+    hint: "imgs/nes-nintendo-entertainment-system.gif"
+}, 
+{
+    categories: "Video Game",
+    question: "What is the name of the first game released for the Nintendo Game Boy?",
+    answer: "tetris",
+    hint: "imgs/tetris-game-boy.gif"
+},
+{
+    categories: "Video Game",
+    question: "Who is Sonic’s sidekick?",
+    answer: "tails",
+    hint: "imgs/tails.gif"
+},
+{
+    categories: "VideoGame",
+    question: "What is the name of a yellow mascot of the nintendo game, 'Pokemon'?",
+    answer: "pikachu",
+    hint: "imgs/94f.gif"
+}
+,{
+    categories: "History",
+    question: "In which country were cuckoo clocks invented?",
+    answer: "germany",
+    hint: "imgs/giphy.gif"
+}
+,{
+    categories: "History",
+    question: "The famous St. Peter’s Basilica is located in which city?",
+    answer: "vatican",
+    hint: "imgs/vatican.gif"
+}
+,{
+    categories: "History",
+    question: "Louis XIV was known as the ‘what’ King?",
+    answer: "sun",
+    hint: "imgs/sun.gif"
+}
+,{
+    categories: "History",
+    question: "The Samurai were warriors in which Asian country?",
+    answer: "japan",
+    hint: "imgs/japan.gif"
+},{
+    categories: "History",
+    question: "Leonardo da Vinci painted what in c.1503-1506?",
+    answer: "mona lisa",
+    hint: "imgs/monalisa.gif"
+},{
+    categories: "Movies",
+    question: "After the success of which film did sales of a particular pet animal increase?",
+    answer: "ratatouille",
+    hint: "imgs/ratatouille.gif"
+},{
+    categories: "Movies",
+    question: "In which film was the fake snow used actually asbestos-based?",
+    answer: "wizard of oz",
+    hint: "imgs/wizardofOz.gif"
+},{
+    categories: "Movies",
+    question: "In The Matrix, does Neo take the blue pill or the red pill?",
+    answer: "red",
+    hint: "imgs/red.gif"
+},{
+    categories: "Movies",
+    question: "Michael Jordan starred alongside Bugs Bunny in which film?",
+    answer: "space jam",
+    hint: "imgs/spacejam.gif"
+},{
+    categories: "Coding trivia",
+    question: "JavaScript wasn’t always called that. What other names has it been released under?",
+    answer: "mocha",
+    hint: "imgs/mocha.jpeg"
+},{
+    categories: "Coding trivia",
+    question: "Who created JavaScript?",
+    answer: "netscape",
+    hint: "imgs/netscape.png"
+},
 {
     categories: "Coding trivia",
     question: "What word is not a reserved word in JavaScript?",
     answer: "undefined",
     hint: "imgs/undefinedmeme.webp"
 }
-//,{
-//     categories: "Coding trivia",
-//     question: "JavaScript gets confused with what other langauge?",
-//     answer: "java",
-//     hint: "imgs/java.gif"
-// }
+,{
+    categories: "Coding trivia",
+    question: "JavaScript gets confused with what other langauge?",
+    answer: "java",
+    hint: "imgs/java.gif"
+}
 ];
 
 /*----- state variables -----*/
