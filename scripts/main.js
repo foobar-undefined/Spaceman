@@ -125,7 +125,6 @@ const countMessage = document.getElementById('count');
 const countDisplay = document.getElementById('countNumber');
 const categoryMessage = document.getElementById('categoryName')
 const questionHere = document.getElementById('question');
-
 let puzzleLetter = document.querySelectorAll('puzzleLetter');
 let specialCharacter = document.getElementById('special');
 
@@ -137,7 +136,8 @@ hintButton.addEventListener('click', guessHint);
 
 
 /*----- functions -----*/
-
+//alphaButtons() iterates through the alphabet array and 
+//generates the board for the player u
 function alphaButtons(){
     let buttonsHTML = document.getElementById("alpha-buttons")
     for(let i = 0; i< alphabet.length; i++){
@@ -169,13 +169,13 @@ function handleEvent(e){
     }
 }
 
-//guess() handles each letter
+//guess() handles the letter picked and determines the win or loss message.
 function guess(e){
     let puzzleArray = puzzle.split("");
     const guessWord = e.target.id;
     if(isTrue()){
         countMessage.innerText = "Access Granted";
-        
+        winAnimation()
     }else{
         if(puzzleArray !== puzzleArray.includes(guessWord)){
             countDown -=1 ;
@@ -188,7 +188,8 @@ function guess(e){
     }
 }
 
-
+//guessHint() will determine if the 'hint' button is selected and display a hint on screen
+//and bless the player with an extra guess point
 function guessHint(e){
     const buttonId = document.getElementById(e.target.id);
     const hintImage = document.getElementById('hintImage');
@@ -241,11 +242,17 @@ function generatePuzzleDisplay(word){
     console.log(wordArray);
     return wordArray
 }
-
+//ejectedAnimation() changes the hint image to generate the loss animation 
 function ejectedAnimation(){
     const hintImage = document.getElementById('hintImage');
     hintImage.src = 'imgs/You-were-ejected!.gif';
 }
+
+function winAnimation(){
+    const winImage = document.getElementById('hintImage');
+    winImage.src = "imgs/win-moon.gif"
+}
+
 
 function initialize(){
     iceBoxCategory = categorySelect();

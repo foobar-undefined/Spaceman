@@ -8,15 +8,17 @@ A Spaceman's incommodity:
 
     But don't take too long remember there's a countdown!
 
-    You can select the category for the entry word and pray you get it right the first time!  or get EJECTED!
+    A random category is selected for you, guess the word to gain entry and pray you get it right the first time! or get EJECTED!
 
-#Game Previews, at win and losing game stages
+#Game Previews, the start and end state of the game.
+
 <img src="imgs/win.png" width="500px">
+
 <img src="imgs/endgame.png" width="500px">
 
 
 
-#Rules:
+## Rules:
 - It's a one player game
 - The player selects a category  and guesses the word
 - Player chooses one character at a time to guess the puzzle
@@ -51,3 +53,6 @@ A win condition will be evaluated did the player win or lose
 A win message will display if the current player wins or lose
 the player wins if they guess the puzzle before the count-down ends
 if countdown finishes before the player guesses the puzzle, spaceman gets ejected.
+
+## Technologies
+HTML, JavaScrpt, CSS
