@@ -115,8 +115,7 @@ let iceBoxCategory; // a category selector
 let puzzle = "";     // puzzle
 let answer = [];    //answer
 let hint;           // hint for our player
-let question;
-let count;
+let question;       //the security question          
 
 const alphabetButtons = document.getElementById('alpha-buttons');
 const ejectButton = document.getElementById('restart');
@@ -168,7 +167,6 @@ function handleEvent(e){
             }
         }
     }
-    console.log(answer+ ': answer array');
 }
 
 //guess() handles each letter
